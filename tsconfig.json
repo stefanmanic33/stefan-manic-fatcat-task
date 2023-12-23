@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "noImplicitAny": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "baseUrl": ".",
+    "paths": {
+      "@homework-task/*": ["src/*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "es6"
+  },
+  "include": [
+    "src/components/Cards.tsx",
+    "src/components/Hero.tsx",
+    "src/components/ItemsShowcase.tsx",
+    "src/components/Layout.tsx",
+    "src/components/PanelShowcase.tsx",
+    "src/components/TrustBar.tsx"
+  ],
+  "exclude": ["node_modules"]
+}
