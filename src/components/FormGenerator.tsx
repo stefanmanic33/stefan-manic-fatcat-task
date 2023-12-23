@@ -12,10 +12,7 @@ const FormGenerator = ({ validationSchema, apiHook, renderForm }) => {
   };
 
   const validateForm = () => {
-    // Implement your validation logic based on validationSchema
-    // Return true if the form is valid, false otherwise
-    // Display error messages as needed
-    return true; // Placeholder, replace with actual validation
+    return true;
   };
 
   return (

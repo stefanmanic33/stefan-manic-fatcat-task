@@ -1,13 +1,15 @@
 // MyForm.js
 
-import React from 'react';
-import FormGenerator from './FormGenerator';
+import React from "react";
+import FormGenerator from "./FormGenerator";
+import { Button } from "./Button";
+import { styles } from "./styles/style";
 
 export const UserForm = () => {
   const validationSchema = {
     title: {
       required: true,
-      maxLength: 50,
+      maxLength: 20,
     },
     body: {
       required: true,
@@ -16,68 +18,92 @@ export const UserForm = () => {
   };
 
   const apiHook = {
-    // Implement your API hook logic here
-    // Example: usePostApi from a custom hook
-    data: {}, // Your API response data
-    isLoading: false, // Loading state
-    isError: false, // Error state
+    data: {},
+    isLoading: false,
+    isError: false,
     submitForm: async (formData) => {
-      // Implement your form submission logic here
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
         const data = await response.json();
-        console.log('Form submitted successfully:', data);
+        console.log("Form submitted successfully:", data);
       } catch (error) {
-        console.error('Error submitting form:', error);
+        console.error("Error submitting form:", error);
       }
     },
   };
 
-  const renderForm = ({ formData, setFormData, handleSubmit, isLoading, isError, validationSchema }) => (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title:</label>
+  const renderForm = ({
+    formData,
+    setFormData,
+    handleSubmit,
+    isLoading,
+    isError,
+    validationSchema,
+  }) => (
+    <form style={styles.formContainer} onSubmit={handleSubmit}>
+      <div style={styles.formFieldContainer}>
+        <label htmlFor="title">Title</label>
         <input
           type="text"
           id="title"
-          value={formData.title || ''}
+          style={{ border: "1px solid gray" }}
+          value={formData.title || ""}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
-        {/* Display error message if validation fails */}
-        {validationSchema.title.required && !formData.title && <div>Title is required</div>}
+        {validationSchema.title.required && !formData.title && (
+          <div style={styles.errorValidationMessage}>Title is required</div>
+        )}
         {validationSchema.title.maxLength &&
           formData.title &&
           formData.title.length > validationSchema.title.maxLength && (
-            <div>Title exceeds maximum length</div>
+            <div style={styles.errorValidationMessage}>
+              Title exceeds maximum length
+            </div>
           )}
       </div>
-      <div>
-        <label htmlFor="body">Body:</label>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label
+          style={{ marginTop: formData.title ? "33px" : "0px" }}
+          htmlFor="body"
+        >
+          Body
+        </label>
         <textarea
           id="body"
-          value={formData.body || ''}
+          style={{ border: "1px solid gray" }}
+          value={formData.body || ""}
           onChange={(e) => setFormData({ ...formData, body: e.target.value })}
         />
-        {/* Display error message if validation fails */}
-        {validationSchema.body.required && !formData.body && <div>Body is required</div>}
+        {validationSchema.body.required && !formData.body && (
+          <div style={styles.errorValidationMessage}>Body is required</div>
+        )}
         {validationSchema.body.maxLength &&
           formData.body &&
           formData.body.length > validationSchema.body.maxLength && (
             <div>Body exceeds maximum length</div>
           )}
       </div>
-      <button type="submit" disabled={isLoading}>
-        Submit
-      </button>
+      <Button className={formData.body ? "mt-8" : ""} children={"Submit"} />
       {isError && <div>Error submitting the form</div>}
     </form>
   );
 
-  return <FormGenerator validationSchema={validationSchema} apiHook={apiHook} renderForm={renderForm} />;
+  return (
+    <div style={styles.formGeneratorContainer}>
+      <FormGenerator
+        validationSchema={validationSchema}
+        apiHook={apiHook}
+        renderForm={renderForm}
+      />
+    </div>
+  );
 };
