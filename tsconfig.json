@@ -22,7 +22,8 @@
     "src/components/ItemsShowcase.tsx",
     "src/components/Layout.tsx",
     "src/components/PanelShowcase.tsx",
-    "src/components/TrustBar.tsx"
+    "src/components/TrustBar.tsx",
+    "src/components/UserList.tsx"
   ],
   "exclude": ["node_modules"]
 }

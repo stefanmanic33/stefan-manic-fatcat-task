@@ -1,9 +1,13 @@
 import React from "react";
 import "./styles.css";
-import { Layout } from "./components/Layout";
+import { UserList } from "./components/UserList";
 
 function App() {
-  return <main></main>;
+  return (
+    <main>
+      <UserList></UserList>
+    </main>
+  );
 }
 
 export default App;
