@@ -1,6 +1,13 @@
 import clsx from 'clsx';
+import React from 'react';
 
-export const Button = ({ children, onClick, className }) => {
+interface ButtonProps {
+    children?: string;
+    onClick: () => void;
+    className?: React.HTMLAttributes<HTMLButtonElement>;
+}
+
+export const Button = ({ children, onClick, className }: ButtonProps) => {
     return (
         <button
             className={clsx(
