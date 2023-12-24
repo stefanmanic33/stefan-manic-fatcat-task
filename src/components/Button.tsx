@@ -5,7 +5,7 @@ interface ButtonProps {
   children?: string;
   onClick?: () => void;
   //   className: React.CSSProperties | Array<React.CSSProperties>;
-  className: string;
+  className?: string;
 }
 
 export const Button = ({ children, onClick, className }: ButtonProps) => {

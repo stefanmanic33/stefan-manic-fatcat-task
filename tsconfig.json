@@ -23,7 +23,8 @@
     "src/components/Layout.tsx",
     "src/components/PanelShowcase.tsx",
     "src/components/TrustBar.tsx",
-    "src/components/UserList.tsx"
+    "src/components/UserList.tsx",
+    "src/components/UserForm.tsx"
   ],
   "exclude": ["node_modules"]
 }

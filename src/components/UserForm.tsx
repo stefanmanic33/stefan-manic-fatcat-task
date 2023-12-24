@@ -50,6 +50,7 @@ export const UserForm = () => {
     validationSchema,
   }) => (
     <form style={styles.formContainer} onSubmit={handleSubmit}>
+      <h1>User Form</h1>
       <div style={styles.formFieldContainer}>
         <label htmlFor="title">Title</label>
         <input
