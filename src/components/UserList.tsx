@@ -31,8 +31,14 @@ export const UserList = () => {
   }, []);
 
   return (
-    <div>
-      <h1>User List</h1>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <h1 style={{ alignSelf: "center" }}>User List</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
