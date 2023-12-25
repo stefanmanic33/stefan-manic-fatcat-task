@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { Constants } from "../assets/constants/constants";
+
 interface User {
   id: number;
   name: string;
@@ -15,9 +17,7 @@ export const useGet = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
+        const response = await fetch(Constants.apiGet);
         const data: User[] = await response.json();
         setData(data);
         setLoading(false);

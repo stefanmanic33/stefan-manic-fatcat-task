@@ -5,6 +5,9 @@ import { Button } from "@homework-task/components/Button";
 import { UserFormProps } from "@homework-task/assets/constants/types";
 import { usePost } from "@homework-task/api/usePost";
 
+const focus = "2px solid gray";
+const blur = "0px solid gray"
+
 export const UserForm = () => {
   const validationSchema = {
     title: {
@@ -45,8 +48,8 @@ export const UserForm = () => {
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
             }
-            onFocus={(e) => (e.target.style.outline = "2px solid gray")}
-            onBlur={(e) => (e.target.style.outline = "0px solid gray")}
+            onFocus={(e) => (e.target.style.outline = focus)}
+            onBlur={(e) => (e.target.style.outline = blur)}
           />
           {validationSchema.title.required && !formData.title && (
             <div style={styles.errorValidationMessage}>Title is required</div>
@@ -76,8 +79,8 @@ export const UserForm = () => {
             value={formData.body || ""}
             maxLength={201}
             onChange={(e) => setFormData({ ...formData, body: e.target.value })}
-            onFocus={(e) => (e.target.style.outline = "2px solid gray")}
-            onBlur={(e) => (e.target.style.outline = "0px solid gray")}
+            onFocus={(e) => (e.target.style.outline = focus)}
+            onBlur={(e) => (e.target.style.outline = blur)}
           />
           {validationSchema.body.required && !formData.body && (
             <div style={styles.errorValidationMessage}>Body is required</div>
