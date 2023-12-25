@@ -1,25 +1,31 @@
-import clsx from "clsx";
 import React from "react";
 
 interface ButtonProps {
-  children?: string;
+  children: string;
   onClick?: () => void;
-  //   className: React.CSSProperties | Array<React.CSSProperties>;
-  className?: string;
+  className?: React.CSSProperties;
+  isDisabled?: boolean;
 }
 
-export const Button = ({ children, onClick, className }: ButtonProps) => {
+export const Button = ({
+  children,
+  onClick,
+  className,
+  isDisabled,
+}: ButtonProps) => {
   return (
     <button
-      className={clsx(
-        "rounded-lg",
-        "px-4",
-        "py-2",
-        "bg-black",
-        "text-white",
-        className
-      )}
+      style={{
+        backgroundColor: isDisabled ? "gray" : "black",
+        color: "white",
+        alignSelf: "center",
+        height: "50px",
+        width: "30%",
+        borderRadius: "20px",
+        ...className,
+      }}
       onClick={onClick}
+      disabled={isDisabled}
     >
       {children}
     </button>

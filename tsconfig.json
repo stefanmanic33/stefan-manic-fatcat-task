@@ -17,14 +17,17 @@
     "target": "es6"
   },
   "include": [
+    "src/components/Button.tsx",
     "src/components/Cards.tsx",
     "src/components/Hero.tsx",
     "src/components/ItemsShowcase.tsx",
     "src/components/Layout.tsx",
     "src/components/PanelShowcase.tsx",
     "src/components/TrustBar.tsx",
-    "src/components/UserList.tsx",
-    "src/components/UserForm.tsx"
+    "src/components/newComponents/UserList.tsx",
+    "src/components/newComponents/UserForm.tsx",
+    "src/components/newComponents/PageGenerator.tsx",
+    "src/assets/constants/types.ts"
   ],
   "exclude": ["node_modules"]
 }

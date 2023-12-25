@@ -1,18 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Hero } from "./Hero";
+import { Hero } from "../Hero";
 import { UserForm } from "./UserForm";
 import { UserList } from "./UserList";
 
-export const PageGenerator = ({ sections }) => {
+export const PageGenerator = ({ sections }: any) => {
   return (
     <div>
-      {sections.map((section, index) => (
+      {sections.map((section: any, index: number) => (
         <div
           key={index}
           style={{
             backgroundColor: section.props?.backgroundColor,
+            backgroundImage: section.props?.backgroundImage,
+            display: section.props?.display,
+            justifyContent: section.props?.justifyContent,
+            alignItems: section.props?.alignItems,
             padding: "50px",
+            height: "100vh",
           }}
         >
           {renderSection(section)}
@@ -22,8 +27,8 @@ export const PageGenerator = ({ sections }) => {
   );
 };
 
-const renderSection = (section) => {
-  const { type, components, props } = section;
+const renderSection = (section: { type?: any; components?: any }) => {
+  const { type, components } = section;
 
   if (!Array.isArray(components)) {
     console.error(`Invalid components array for section with type: ${type}`);
@@ -33,15 +38,7 @@ const renderSection = (section) => {
   switch (type) {
     case "singleColumn":
       return (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {renderComponents(components)}
-        </div>
+        <div style={styles.singleContainer}>{renderComponents(components)}</div>
       );
     case "twoColumns":
       if (
@@ -51,10 +48,10 @@ const renderSection = (section) => {
       ) {
         return (
           <div style={{ display: "flex" }}>
-            <div style={{ flex: 1, padding: "10px", marginRight: "30px" }}>
+            <div style={styles.twColumnsContainer}>
               {renderComponents(components[0].items)}
             </div>
-            <div style={{ flex: 1, padding: "10px" }}>
+            <div style={styles.twColumnsContainer}>
               {renderComponents(components[1].items)}
             </div>
           </div>
@@ -65,7 +62,6 @@ const renderSection = (section) => {
         );
         return null;
       }
-    // Add more layout types as needed
 
     default:
       return null;
@@ -73,7 +69,7 @@ const renderSection = (section) => {
 };
 
 const renderComponents = (components: any) => {
-  return components.map((component, index) => {
+  return components.map((component: any, index: number) => {
     switch (component.type) {
       case "Hero":
         return <Hero key={index} {...component.props} />;
@@ -107,4 +103,17 @@ PageGenerator.propTypes = {
       props: PropTypes.object,
     })
   ).isRequired,
+};
+
+const styles = {
+  singleContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  twColumnsContainer: {
+    flex: 1,
+    padding: "10px",
+    marginRight: "30px",
+  },
 };
