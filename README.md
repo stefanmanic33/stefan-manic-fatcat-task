@@ -22,7 +22,7 @@ you can send by pressing the submit button. It is also possible
 
 Users can submit the form by pressing the submit button.
 You just need to complete all the validations in the oils, 
-so that you can send the entered form
+so that you can send the entered form.
 
 
 <img width="1125" alt="Screenshot 2023-12-25 at 20 42 15" src="https://github.com/stefanmanic33/stefan-manic-fatcat-task/assets/132456152/564b6332-c97e-423d-b974-e2e75144e0d9">
@@ -142,6 +142,9 @@ add your own components.
 
 #### 2.Run the Development Server:
      npm start
+     
+#### 3. Go to browser
+     http://localhost:3000
 
 ### Conclusion
 
