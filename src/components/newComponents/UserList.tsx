@@ -1,5 +1,6 @@
 import React from "react";
-import { useGet } from "../../api/useGet";
+
+import { useGet } from "@homework-task/api/useGet";
 
 export const UserList = () => {
   const { data, loading } = useGet();

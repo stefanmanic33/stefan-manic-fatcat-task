@@ -1,8 +1,21 @@
+interface FormData {
+  title: string;
+  body: string;
+}
+
+interface ApiResponse {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+
 export const usePost = {
-  data: {},
+  data: {} as ApiResponse,
   isLoading: false,
   isError: false,
-  submitForm: async (formData: any) => {
+  submitForm: async (formData: FormData) => {
     try {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts",

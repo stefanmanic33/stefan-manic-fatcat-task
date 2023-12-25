@@ -9,8 +9,15 @@ export interface ValidationSchema {
   };
 }
 
+export interface PostData {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 export interface ApiHook {
-  data: any;
+  data: PostData;
   isLoading: boolean;
   isError: boolean;
   submitForm: (formData: any) => Promise<void>;

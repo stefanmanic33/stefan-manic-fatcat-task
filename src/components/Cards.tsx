@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { Button } from '@homework-task/components/Button';
 import React from 'react';
+
+import { Button } from '@homework-task/components/Button';
 
 interface cardItem {
     title: string;

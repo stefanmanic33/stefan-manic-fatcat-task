@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { FormGeneratorProps } from "../../assets/constants/types";
+
+import { FormGeneratorProps } from "@homework-task/assets/constants/types";
 
 interface FormData {
   title?: string;
   body?: string;
-  // add other properties as needed
 }
 
 export const FormGenerator = ({
@@ -16,7 +16,7 @@ export const FormGenerator = ({
   const { isLoading, isError, submitForm } = apiHook;
   const [successMessage, setSuccessMessage] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       await submitForm(formData);

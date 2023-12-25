@@ -5,9 +5,9 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@homework-task/*": ["src/*"]
+      "@homework-task/*": ["*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -26,6 +26,7 @@
     "src/components/TrustBar.tsx",
     "src/components/newComponents/UserList.tsx",
     "src/components/newComponents/UserForm.tsx",
+    "src/components/newComponents/FormGenerator.tsx",
     "src/components/newComponents/PageGenerator.tsx",
     "src/assets/constants/types.ts"
   ],

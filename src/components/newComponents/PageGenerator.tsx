@@ -1,10 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Hero } from "../Hero";
-import { UserForm } from "./UserForm";
-import { UserList } from "./UserList";
 
-export const PageGenerator = ({ sections }: any) => {
+import { Hero } from "@homework-task/components/Hero";
+import { UserForm } from "@homework-task/components/newComponents//UserForm";
+import { UserList } from "@homework-task/components/newComponents/UserList";
+
+interface Component {
+  type: string;
+  props: any; 
+}
+
+interface SectionProps {
+  backgroundColor?: string;
+  backgroundImage?: string;
+  display?: string;
+  justifyContent?: string;
+  alignItems?: string;
+}
+
+interface SectionItem {
+  type?: string;
+  props?: SectionProps;
+  components?: Component[];
+}
+
+interface PageGeneratorProps {
+  sections: SectionItem[];
+}
+
+export const PageGenerator = ({ sections }: PageGeneratorProps) => {
   return (
     <div>
       {sections.map((section: any, index: number) => (
@@ -27,7 +51,7 @@ export const PageGenerator = ({ sections }: any) => {
   );
 };
 
-const renderSection = (section: { type?: any; components?: any }) => {
+const renderSection = (section: { type?: string; components?: Component }) => {
   const { type, components } = section;
 
   if (!Array.isArray(components)) {
@@ -68,8 +92,8 @@ const renderSection = (section: { type?: any; components?: any }) => {
   }
 };
 
-const renderComponents = (components: any) => {
-  return components.map((component: any, index: number) => {
+const renderComponents = (components: Component[]) => {
+  return components.map((component: Component, index: number) => {
     switch (component.type) {
       case "Hero":
         return <Hero key={index} {...component.props} />;

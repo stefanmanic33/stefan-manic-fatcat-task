@@ -1,8 +1,9 @@
 import React from "react";
-import { FormGenerator } from "./FormGenerator";
-import { Button } from "../Button";
-import { UserFormProps } from "../../assets/constants/types";
-import { usePost } from "../../api/usePost";
+
+import { FormGenerator } from "@homework-task/components/newComponents/FormGenerator";
+import { Button } from "@homework-task/components/Button";
+import { UserFormProps } from "@homework-task/assets/constants/types";
+import { usePost } from "@homework-task/api/usePost";
 
 export const UserForm = () => {
   const validationSchema = {
